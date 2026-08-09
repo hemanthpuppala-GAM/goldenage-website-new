@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://goldenagewisdom.org/sitemap.xml
