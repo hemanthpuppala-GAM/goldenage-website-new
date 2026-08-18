@@ -84,12 +84,12 @@
     .sched-label { flex: 1 1 100% !important; }
     .sched-times { margin-left: 20px !important; }
     .r-shell { flex-direction: column !important; }
-    .r-sidebar { width: 100% !important; height: auto !important; position: sticky !important; top: 0 !important; z-index: 60 !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; gap: 4px !important; padding: 8px 12px !important; overflow-x: auto !important; overflow-y: hidden !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; background: rgba(13,10,28,0.92) !important; backdrop-filter: blur(14px); border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; }
+    .r-sidebar { width: 100% !important; height: auto !important; position: sticky !important; top: 0 !important; z-index: 60 !important; flex-direction: row !important; flex-wrap: wrap !important; align-items: center !important; justify-content: center !important; gap: 4px !important; row-gap: 5px !important; padding: 8px 10px !important; overflow: visible !important; background: rgba(13,10,28,0.92) !important; backdrop-filter: blur(14px); border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; }
     .r-sidebar::-webkit-scrollbar { height: 0; }
     .r-sidebar > * { flex-shrink: 0 !important; }
     .r-sidebar .r-side-brand { padding: 0 6px 0 0 !important; }
     .r-sidebar .r-side-brand span { display: none !important; }
-    .r-sidebar button { padding: 9px 12px !important; font-size: 13.5px !important; }
+    .r-sidebar button { padding: 7px 10px !important; font-size: 12.5px !important; gap: 7px !important; border-radius: 999px !important; }
     .r-sidebar .r-side-collapse, .r-sidebar .r-side-note, .r-sidebar .r-side-spacer { display: none !important; }
     .r-sidebar .r-side-mobile { display: flex !important; }
     .r-overview { height: auto !important; min-height: 0 !important; }
@@ -167,7 +167,7 @@
         </div>
         <div style="width: 100%; display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-radius: 16px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.06); text-align: left">
           <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; flex-shrink: 0"><path d="M12 2l8 3.5v5c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11v-5L12 2z" fill="none" stroke="#d5b77c" stroke-width="1.6" stroke-linejoin="round"></path><path d="M8.5 12l2.5 2.5 4.5-4.7" fill="none" stroke="#d5b77c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <span style="font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #b9b1a0">We never see, store or handle passwords. Sign-in happens entirely with Google, Microsoft, Facebook or Apple — we only receive your name and email. <a href="mailto:info@goldenagewisdom.org?subject=Privacy%20policy" style="font-size: 12.5px">Privacy policy</a></span>
+          <span style="font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #b9b1a0">We never see, store or handle passwords. Sign-in happens entirely with Google, Microsoft, Facebook or Apple — we only receive your name and email. <a href="mailto:goldenageguruteachings@gmail.com?subject=Privacy%20policy" style="font-size: 12.5px">Privacy policy</a></span>
         </div>
         <a href="./" style="font-size: 13px; color: #9a927f">← Back to goldenagewisdom.org</a>
       </div>
@@ -182,7 +182,7 @@
         <button onClick="{{ toggleSide }}" title="{{ sideTitle }}" class="r-side-collapse" style="align-self: flex-end; width: 30px; height: 30px; flex-shrink: 0; margin-bottom: 4px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #b9b1a0; font-size: 13px; cursor: pointer" style-hover="border-color: rgba(213,183,124,0.6); color: #e6d3a8">{{ sideIcon }}</button>
         <a href="./" class="r-side-brand" title="Golden Age Wisdom" style="display: flex; align-items: center; gap: 10px; padding: 0 8px 22px">
           <img src="assets/logo-128.webp" alt="" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; object-fit: cover; border: 1px solid rgba(213,183,124,0.5)">
-          <sc-if value="{{ sideOpen }}" hint-placeholder-val="{{ true }}"><span style="font-family: 'Marcellus', serif; font-size: 15px; letter-spacing: 0.04em; color: #e6d3a8; white-space: nowrap">GOLDEN AGE</span></sc-if>
+          <sc-if value="{{ sideOpen }}" hint-placeholder-val="{{ true }}"><span style="font-family: 'Marcellus', serif; font-size: 19px; letter-spacing: 0.05em; background: linear-gradient(115deg, #f6e7c1 10%, #d5b77c 48%, #b89758 90%); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; filter: drop-shadow(0 0 12px rgba(213,183,124,0.35))">GOLDEN AGE</span></sc-if>
         </a>
         <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
           <button onClick="{{ n.go }}" title="{{ n.label }}" style="display: flex; align-items: center; gap: 12px; padding: 11px 13px; border-radius: 12px; border: none; text-align: left; font-family: 'Outfit', sans-serif; font-size: 14.5px; cursor: pointer; white-space: nowrap; overflow: hidden; background: {{ n.bg }}; color: {{ n.color }}; font-weight: {{ n.weight }}"><span style="width: 18px; flex-shrink: 0; text-align: center">{{ n.icon }}</span>{{ n.label }}</button>
@@ -215,7 +215,7 @@
             <div class="r-dash-head" style="flex-shrink: 0; position: sticky; top: 0; z-index: 20; margin: 0 -34px; padding: 16px 34px 12px; background: linear-gradient(180deg, rgba(13,10,28,0.96) 60%, rgba(13,10,28,0)); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; gap: 16px">
               <div style="flex: 1 1 300px; min-width: 240px">
                 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
-                  <h1 style="font-family: 'Marcellus', serif; font-size: 24px; margin: 0; color: #f7f1e3">Namaste, {{ memberName }} 🙏</h1>
+                  <h1 style="font-family: 'Marcellus', serif; font-size: 18px; margin: 0; color: #f7f1e3">Namaste, {{ memberName }} 🙏</h1>
                   <sc-if value="{{ hasMemberId }}" hint-placeholder-val="{{ true }}"><span style="padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(213,183,124,0.4); background: rgba(213,183,124,0.08); font-size: 11.5px; letter-spacing: 0.12em; color: #d5b77c; white-space: nowrap">{{ memberId }}</span></sc-if>
                 </div>
                 <p style="margin: 4px 0 0; font-size: 13px; font-weight: 300; color: #9a927f">{{ journeyLine }}</p>
@@ -270,57 +270,14 @@
             </div>
             <div class="r-grid-2" style="flex: 1; min-height: 0; display: grid; grid-template-columns: 1.15fr 1fr; gap: 13px">
               <div style="min-height: 0; padding: 16px 18px; border-radius: 24px; background: rgba(255,255,255,0.045); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 11px">
-                <div style="flex-shrink: 0; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap">
-                  <h2 style="font-family: 'Marcellus', serif; font-size: 17px; margin: 0; color: #f2e9d8">Teachings to sit with</h2>
-                  <a href="https://www.youtube.com/@GoldenAgeGurus/videos" target="_blank" rel="noopener" style="font-size: 12px">All discourses →</a>
-                </div>
-                <button onClick="{{ openFeatured }}" style="flex-shrink: 0; padding: 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.03); cursor: pointer; text-align: left; display: flex; flex-direction: column; font-family: 'Outfit', sans-serif; transition: border-color 0.3s, transform 0.3s" style-hover="border-color: rgba(213,183,124,0.6); transform: translateY(-2px)">
-                  <span style="position: relative; display: block; height: clamp(112px, 19vh, 208px); background: #0d0a1c">
-                    <img src="{{ featuredThumb }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.9">
-                    <span style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,6,20,0) 42%, rgba(8,6,20,0.88) 100%)"></span>
-                    <span style="position: absolute; left: 16px; bottom: 14px; right: 16px; display: flex; align-items: center; gap: 12px">
-                      <span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: rgba(213,183,124,0.94); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 22px rgba(0,0,0,0.5)">
-                        <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; margin-left: 2px"><path d="M8 5.5v13l11-6.5z" fill="#241b06"></path></svg>
-                      </span>
-                      <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
-                        <span style="font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #d5b77c">{{ featuredCat }}</span>
-                        <span style="font-family: 'Marcellus', serif; font-size: 17px; line-height: 1.25; color: #f7f1e3">{{ featuredTitle }}</span>
-                      </span>
-                    </span>
+                <h2 style="font-family: 'Marcellus', serif; font-size: 17px; margin: 0; color: #f2e9d8">Wisdom of Dr. Hari</h2>
+                <p style="margin: 0; font-size: 13px; font-weight: 300; line-height: 1.55; color: #9a927f">His teachings cover meditation, kundalini, wellness practices and much more — all discourses live on our YouTube channel.</p>
+                <a href="https://www.youtube.com/@GoldenAgeGurus" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 16px; border: 1px solid rgba(213,183,124,0.35); background: rgba(213,183,124,0.08); color: #e6d3a8; font-size: 13.5px; font-weight: 500; align-self: flex-start" style-hover="border-color: rgba(230,211,168,0.7); color: #f7f1e3">
+                  <span style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: rgba(213,183,124,0.94); display: flex; align-items: center; justify-content: center">
+                    <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; margin-left: 2px"><path d="M8 5.5v13l11-6.5z" fill="#241b06"></path></svg>
                   </span>
-                </button>
-                <div class="r-scroll-list" style="flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; scrollbar-width: thin">
-                <sc-for list="{{ videoRest }}" as="v" hint-placeholder-count="4">
-                  <button onClick="{{ v.open }}" style="display: flex; align-items: center; gap: 13px; padding: 9px 12px 9px 9px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.035); cursor: pointer; text-align: left; font-family: 'Outfit', sans-serif; transition: border-color 0.3s" style-hover="border-color: rgba(213,183,124,0.45)">
-                    <span style="position: relative; width: 68px; flex-shrink: 0; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: #0d0a1c">
-                      <img src="{{ v.thumb }}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85">
-                      <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #f7f1e3; font-size: 11px; text-shadow: 0 1px 6px rgba(0,0,0,0.7)">▶</span>
-                    </span>
-                    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1">
-                      <span style="font-size: 14px; font-weight: 500; color: #efe9dc; line-height: 1.35">{{ v.title }}</span>
-                      <span style="font-size: 11.5px; font-weight: 300; color: #9a927f">{{ v.cat }}</span>
-                    </span>
-                  </button>
-                </sc-for>
-                </div>
-              </div>
-              <div style="min-height: 0; padding: 16px 20px; border-radius: 24px; background: rgba(255,255,255,0.045); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 10px">
-                <h2 style="flex-shrink: 0; font-family: 'Marcellus', serif; font-size: 17px; margin: 0; color: #f2e9d8">Your gatherings</h2>
-                <div class="r-scroll-list" style="flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column">
-                <sc-if value="{{ noUpcoming }}" hint-placeholder-val="{{ false }}">
-                  <p style="margin: 0 0 10px; font-size: 12.5px; font-weight: 300; line-height: 1.55; color: #9a927f">Nothing on the calendar yet — the live sessions run every day, Monday to Saturday. New retreats are announced here.</p>
-                </sc-if>
-                <sc-for list="{{ events }}" as="e" hint-placeholder-count="2">
-                  <div style="display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1)">
-                    <div style="flex-shrink: 0; width: 52px; text-align: center; padding: 7px 0; border-radius: 12px; background: {{ e.dateBg }}; border: 1px solid {{ e.dateBorder }}">
-                      <div style="font-family: 'Marcellus', serif; font-size: 18px; color: {{ e.dateColor }}; line-height: 1.1">{{ e.day }}</div>
-                      <div style="font-size: 10.5px; letter-spacing: 0.1em; color: {{ e.monthColor }}">{{ e.month }}</div>
-                    </div>
-                    <div style="flex: 1"><div style="font-weight: 500; font-size: 14.5px; color: {{ e.titleColor }}">{{ e.title }}</div><div style="font-size: 12.5px; font-weight: 300; color: {{ e.metaColor }}">{{ e.meta }}</div></div>
-                    <button onClick="{{ e.toggle }}" disabled="{{ e.past }}" style="flex-shrink: 0; padding: 7px 14px; border-radius: 999px; font-family: 'Outfit', sans-serif; font-size: 12px; white-space: nowrap; cursor: {{ e.btnCursor }}; border: 1px solid {{ e.btnBorder }}; background: {{ e.btnBg }}; color: {{ e.btnColor }}; font-weight: 500">{{ e.btnLabel }}</button>
-                  </div>
-                </sc-for>
-                </div>
+                  Watch on YouTube — @GoldenAgeGurus
+                </a>
               </div>
             </div>
           </div>
@@ -487,57 +444,50 @@
           </div>
         </sc-if>
 
+        <!-- Wisdom Guide tab -->
+        <sc-if value="{{ tabGuide }}" hint-placeholder-val="{{ false }}">
+          <div style="padding-top: 34px; display: flex; flex-direction: column; gap: 20px; max-width: 720px">
+            <div style="display: flex; align-items: center; gap: 14px">
+              <div style="width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: radial-gradient(circle at 35% 35%, #e6d3a8, #b89758); display: flex; align-items: center; justify-content: center">
+                <svg viewBox="0 0 64 64" style="width: 26px; height: 26px; display: block">
+                  <circle cx="32" cy="14" r="6.5" fill="#241b06"></circle>
+                  <path d="M32 24c-6.5 0-10.5 4-12.5 10l-2 6h29l-2-6c-2-6-6-10-12.5-10z" fill="#241b06"></path>
+                  <path d="M12 46c2-4.5 9-7 20-7s18 2.5 20 7c0.8 1.8-0.5 3.5-2.5 3.5h-35c-2 0-3.3-1.7-2.5-3.5z" fill="#241b06"></path>
+                </svg>
+              </div>
+              <div>
+                <h1 style="font-family: 'Marcellus', serif; font-size: 30px; margin: 0; color: #f7f1e3">Wisdom Guide</h1>
+                <p style="margin: 4px 0 0; font-size: 14.5px; font-weight: 300; color: #9a927f">Knows your journey · asks back</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: rgba(255,255,255,0.04); backdrop-filter: blur(16px); border: 1px solid rgba(213,183,124,0.26); min-height: 420px; max-height: calc(100dvh - 300px)">
+              <div style="flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+                <sc-for list="{{ chatMessages }}" as="msg" hint-placeholder-count="1">
+                  <div style="max-width: 82%; padding: 10px 14px; border-radius: 16px; font-size: 13.5px; font-weight: 300; line-height: 1.5; align-self: {{ msg.align }}; background: {{ msg.bg }}; color: {{ msg.color }}">{{ msg.text }}</div>
+                </sc-for>
+                <a href="mailto:goldenageguruteachings@gmail.com?subject=A%20question%20from%20a%20member" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.07); color: #e6d3a8; font-size: 12.5px; max-width: 340px">
+                  <span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(213,183,124,0.4); font-size: 12px">✉</span>
+                  <span style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+                    <span style="color: #f2e9d8">Ask the seva team</span>
+                    <span style="font-weight: 300; color: #9a927f; overflow: hidden; text-overflow: ellipsis">goldenageguruteachings@gmail.com</span>
+                  </span>
+                </a>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px">
+                  <sc-for list="{{ chatChips }}" as="c" hint-placeholder-count="2">
+                    <button onClick="{{ c.pick }}" style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.08); color: #d5b77c; font-family: 'Outfit', sans-serif; font-size: 12px; cursor: pointer">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="padding: 12px; display: flex; gap: 8px; border-top: 1px solid rgba(255,255,255,0.1)">
+                <input value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="Ask anything…" style="flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 10px 16px; color: #efe9dc; font-family: 'Outfit', sans-serif; font-size: 13.5px; outline: none">
+                <button onClick="{{ sendChat }}" style="width: 40px; height: 40px; border-radius: 50%; border: none; background: linear-gradient(135deg, #d5b77c, #b89758); color: #241b06; font-size: 15px; cursor: pointer">↑</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
       </main>
     </div>
-  </sc-if>
-
-  <!-- WISDOM GUIDE BOT -->
-  <sc-if value="{{ showDash }}" hint-placeholder-val="{{ false }}">
-    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
-      <div style="position: fixed; bottom: 96px; right: 24px; z-index: 90; width: 350px; max-height: min(480px, calc(100vh - 120px)); display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: rgba(20,16,41,0.88); backdrop-filter: blur(24px); border: 1px solid rgba(213,183,124,0.26); box-shadow: 0 20px 60px rgba(0,0,0,0.5)">
-        <div style="padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px">
-          <div style="width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e6d3a8, #b89758); display: flex; align-items: center; justify-content: center">
-            <svg viewBox="0 0 64 64" style="width: 21px; height: 21px; display: block">
-              <circle cx="32" cy="14" r="6.5" fill="#241b06"></circle>
-              <path d="M32 24c-6.5 0-10.5 4-12.5 10l-2 6h29l-2-6c-2-6-6-10-12.5-10z" fill="#241b06"></path>
-              <path d="M12 46c2-4.5 9-7 20-7s18 2.5 20 7c0.8 1.8-0.5 3.5-2.5 3.5h-35c-2 0-3.3-1.7-2.5-3.5z" fill="#241b06"></path>
-            </svg>
-          </div>
-          <div><div style="font-weight: 600; font-size: 14.5px; color: #f2e9d8">Wisdom Guide</div><div style="font-size: 12px; color: #9a927f">Knows your journey · asks back</div></div>
-        </div>
-        <div style="flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px">
-          <sc-for list="{{ chatMessages }}" as="msg" hint-placeholder-count="1">
-            <div style="max-width: 86%; padding: 10px 14px; border-radius: 16px; font-size: 13.5px; font-weight: 300; line-height: 1.5; align-self: {{ msg.align }}; background: {{ msg.bg }}; color: {{ msg.color }}">{{ msg.text }}</div>
-          </sc-for>
-          <a href="mailto:info@goldenagewisdom.org?subject=A%20question%20from%20a%20member" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.07); color: #e6d3a8; font-size: 12.5px">
-            <span style="width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(213,183,124,0.4); font-size: 12px">✉</span>
-            <span style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
-              <span style="color: #f2e9d8">Ask the seva team</span>
-              <span style="font-weight: 300; color: #9a927f; overflow: hidden; text-overflow: ellipsis">info@goldenagewisdom.org</span>
-            </span>
-          </a>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px">
-            <sc-for list="{{ chatChips }}" as="c" hint-placeholder-count="2">
-              <button onClick="{{ c.pick }}" style="padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.08); color: #d5b77c; font-family: 'Outfit', sans-serif; font-size: 12px; cursor: pointer">{{ c.label }}</button>
-            </sc-for>
-          </div>
-        </div>
-        <div style="padding: 12px; display: flex; gap: 8px; border-top: 1px solid rgba(255,255,255,0.1)">
-          <input value="{{ chatInput }}" onChange="{{ onChatInput }}" onKeyDown="{{ onChatKey }}" placeholder="Ask anything…" style="flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 10px 16px; color: #efe9dc; font-family: 'Outfit', sans-serif; font-size: 13.5px; outline: none">
-          <button onClick="{{ sendChat }}" style="width: 40px; height: 40px; border-radius: 50%; border: none; background: linear-gradient(135deg, #d5b77c, #b89758); color: #241b06; font-size: 15px; cursor: pointer">↑</button>
-        </div>
-      </div>
-    </sc-if>
-    <button onClick="{{ toggleChat }}" class="r-fab" title="Wisdom Guide" style="position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; border: 1px solid rgba(213,183,124,0.5); background: radial-gradient(circle at 35% 35%, #e6d3a8, #b89758); color: #241b06; font-size: 24px; cursor: pointer; box-shadow: 0 8px 30px rgba(213,183,124,0.45); font-family: 'Marcellus', serif; display: flex; align-items: center; justify-content: center">
-      <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}"><span style="font-size: 26px; line-height: 1">×</span></sc-if>
-      <sc-if value="{{ chatClosed }}" hint-placeholder-val="{{ true }}">
-        <svg viewBox="0 0 64 64" style="width: 32px; height: 32px; display: block">
-          <circle cx="32" cy="14" r="6.5" fill="#241b06"></circle>
-          <path d="M32 24c-6.5 0-10.5 4-12.5 10l-2 6h29l-2-6c-2-6-6-10-12.5-10z" fill="#241b06"></path>
-          <path d="M12 46c2-4.5 9-7 20-7s18 2.5 20 7c0.8 1.8-0.5 3.5-2.5 3.5h-35c-2 0-3.3-1.7-2.5-3.5z" fill="#241b06"></path>
-        </svg>
-      </sc-if>
-    </button>
   </sc-if>
 
   <!-- SESSION OVERLAY -->
@@ -678,7 +628,7 @@
               </span>
             </div>
           </sc-for>
-          <div style="font-size: 11.5px; font-weight: 300; line-height: 1.5; color: #7d7666">The same three sessions run every day, Sundays included. Group meditation is a silent hour together; the wisdom hour that follows is Dr. Hari answering open questions.</div>
+          <div style="font-size: 11.5px; font-weight: 300; line-height: 1.5; color: #7d7666">The same three sessions run Monday to Saturday — Sunday is the rest day. Group meditation is a silent hour together; the wisdom hour that follows is Dr. Hari answering open questions.</div>
         </div>
         <div style="padding: 18px 20px; border-radius: 24px; border: 1px solid rgba(213,183,124,0.26); background: rgba(213,183,124,0.06); display: flex; flex-direction: column; gap: 12px">
           <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap">
@@ -854,7 +804,7 @@ class Component extends DCLogic {
     return 'https://www.youtube.com/embed/' + path + p;
   }
   channelId() { return 'UCb_5Mpr91TDNqc6zHbq9erQ'; }
-  // Live sessions run every day of the week, IST — Sundays included.
+  // Live sessions run Monday–Saturday IST — Sunday is the rest day.
   sessionSchedule() {
     // IST minutes-from-midnight. `youtube` marks the windows that are actually
     // broadcast on the channel — the Zoom circle opens at 8:00 PM IST
@@ -867,20 +817,24 @@ class Component extends DCLogic {
     ];
   }
   /* Next (or current) occurrence of a window, as ABSOLUTE instants so the
-     member's own clock and calendar day are the source of truth. Every day
-     carries the same schedule now, so tomorrow is always simply tomorrow. */
+     member's own clock and calendar day are the source of truth. Sunday (IST)
+     is the rest day — live/next windows skip it. */
   nextOccurrence(list) {
     const day = 86400000, ist = this.istNow();
+    const dow = ist.getDay();
     const mins = ist.getHours() * 60 + ist.getMinutes();
-    const live = list.find(s => mins >= s.from && mins < s.to);
+    const live = dow !== 0 && list.find(s => mins >= s.from && mins < s.to);
     if (live) return { status: 'live', session: live, rest: false, startMs: this.sessionInstant(live.from), endMs: this.sessionInstant(live.to) };
-    const later = list.find(s => mins < s.from);
+    const later = dow !== 0 && list.find(s => mins < s.from);
     if (later) return { status: 'soon', session: later, rest: false, startMs: this.sessionInstant(later.from), endMs: this.sessionInstant(later.to) };
+    // Roll to the next session day: +1 day normally, +2 from Saturday night,
+    // +1 from Sunday itself (whole Sunday counts down to Monday).
     const first = list[0];
+    const skip = dow === 6 ? 2 : 1;
     return {
-      status: 'soon', session: first, rest: false,
-      startMs: this.sessionInstant(first.from) + day,
-      endMs: this.sessionInstant(first.to) + day,
+      status: 'soon', session: first, rest: dow === 0,
+      startMs: this.sessionInstant(first.from) + skip * day,
+      endMs: this.sessionInstant(first.to) + skip * day,
     };
   }
   awayMins(startMs) { return Math.max(0, Math.round((startMs - Date.now()) / 60000)); }
@@ -1249,7 +1203,7 @@ class Component extends DCLogic {
   }
   knowledgeBase() {
     return [
-      'Golden Age Wisdom is a registered non-profit spiritual movement. Everything it teaches is free. Contact: info@goldenagewisdom.org.',
+      'Golden Age Wisdom is a registered non-profit spiritual movement. Everything it teaches is free. Contact: goldenageguruteachings@gmail.com.',
       'Founder: Dr. Hari Krishna, a medical professional and spiritual teacher who founded the Golden Age Spiritual Movement.',
       'The core practice: sit comfortably, close the eyes and watch the breath. No kriyas, no breath-control techniques, no mantras required.',
       'The 41-day invitation: one 30-minute sit in silence every day for 41 days, then observe how mind and body heal and how you act.',
@@ -1273,7 +1227,7 @@ class Component extends DCLogic {
       'Karmas, past-life glimpses, third-eye visions and openings are all part of the terrain of meditation experiences; they come and go. The real beauty is transformation, wisdom and knowing the ultimate truth.',
       'The ultimate truth depends on what the seeker wants: joy for one, wisdom for another, self-discovery for the next. Come to know yourself through your own journey.',
       'If a member is new and asks about kundalini, visions or karmas, gently suggest they simply sit first — as Dr. Hari says, \'Gammuga kurchavo\', simply sit quietly.',
-      'Live sessions run every day on Zoom, Sundays included. 4:10-5:10 AM IST Brahmamuhurtham sit, 8:00-9:00 PM IST group meditation, 9:00-10:00 PM IST wisdom sharing with Dr. Hari.',
+      'Live sessions run Monday to Saturday on Zoom — Sunday is the rest day. 4:10-5:10 AM IST Brahmamuhurtham sit, 8:00-9:00 PM IST group meditation, 9:00-10:00 PM IST wisdom sharing with Dr. Hari.',
       'The group meditation hour is silent sitting together. The wisdom hour that follows is Dr. Hari answering members\' open spiritual questions, 1:1.',
       'Members join live from the Join live panel in their dashboard: Zoom (members only, full meeting details shown there), or YouTube live to watch only. Members who cannot attend can Sit & Scribe on their own at any hour.',
       'Recorded discourses of Dr. Hari are in the Discourses tab of the member area and on youtube.com/@GoldenAgeGurus.',
@@ -1338,7 +1292,7 @@ class Component extends DCLogic {
       event: (() => {
         const li = this.liveInfo();
         const rows = this.scheduleRows().map(r => r.label + ' — ' + r.local + ' (' + r.ist + ')').join('\n');
-        return 'Live sessions run every day, Sundays included:\n' + rows + '\n\n' + (li.status === 'live' ? li.label + ' is live right now — open Join live in your sidebar for the Zoom details.' : (li.status === 'rest' ? 'Sunday is rest — no group session today.' : 'Next: ' + li.label + ', ' + li.note + '.')) + ' For retreats and satsang dates, write to info@goldenagewisdom.org.';
+        return 'Live sessions run Monday to Saturday (Sunday is the rest day):\n' + rows + '\n\n' + (li.status === 'live' ? li.label + ' is live right now — open Join live in your sidebar for the Zoom details.' : (li.status === 'rest' ? 'Sunday is rest — no group session today.' : 'Next: ' + li.label + ', ' + li.note + '.')) + ' For retreats and satsang dates, write to goldenageguruteachings@gmail.com.';
       })(),
       journal: 'Your journal is private and encrypted — only you can read it. Writing right after a sit captures what the mind forgets in minutes. Open the Journal tab and note even one line about today\u2019s sitting.',
       stress: `I hear you, ${name}. Stress softens fastest in silence: sit now for just 5 minutes, eyes closed, watching the breath — nothing else. Your streak shows the healing is already working. Shall I open a session?`,
@@ -1354,7 +1308,7 @@ class Component extends DCLogic {
     }
     const fallbacks = [
       `I don\u2019t have that one yet, ${name}. Ask me about your streak, your minutes, the live sessions, the 41-day challenge, the journal, or how you\u2019re feeling today.`,
-      `That\u2019s outside what I know, ${name} — but I can help with your practice, your progress, the live sessions or the journal. For anything else, info@goldenagewisdom.org reaches a person.`,
+      `That\u2019s outside what I know, ${name} — but I can help with your practice, your progress, the live sessions or the journal. For anything else, goldenageguruteachings@gmail.com reaches a person.`,
       `Still learning that one. Try asking about meditation itself, kundalini, the 41 days, your streak, or tonight\u2019s session.`,
     ];
     this._fbN = (this._fbN || 0);
@@ -1449,7 +1403,7 @@ class Component extends DCLogic {
   async askGuide(q, local) {
     const facts = this.knowledgeBase().join('\n- ');
     const rules = 'You are the Wisdom Guide of Golden Age Wisdom, a warm meditation companion. Answer ONLY from the FACTS and MEMBER DATA below. '
-      + 'If the answer is not contained there, say plainly that you do not know and invite the member to write to info@goldenagewisdom.org. '
+      + 'If the answer is not contained there, say plainly that you do not know and invite the member to write to goldenageguruteachings@gmail.com. '
       + 'Never invent teachings, events, dates, numbers, names or scripture. Never give medical, psychiatric, legal or financial advice — refer to a qualified professional. '
       + 'Two to four sentences, calm and plain, no emoji except an occasional 🙏. If the member is distressed, be gentle and suggest a short sit.'
       + '\n\nFACTS:\n- ' + facts + '\n\nMEMBER DATA:\n' + this.memberContext();
@@ -1629,9 +1583,7 @@ class Component extends DCLogic {
     this.registerUser(user);
     this.syncBackendNumber(user);
     try { localStorage.setItem('gaw_session', JSON.stringify(user)); localStorage.setItem('gaw_last_user', JSON.stringify(user)); } catch (e) {}
-    let landing = null;
-    try { landing = localStorage.getItem('gaw_landing'); } catch (e) {}
-    if (landing) { setTimeout(() => this.openLanding(landing), 60); } else { setTimeout(() => this.setState({ landingOpen: true }), 350); }
+    // Landing chooser removed — members land on the dashboard overview.
     this.setState({ screen: 'dash', sessionUser: user, journalEntries: this.loadData().journal || [], registered: this.loadData().events || {} });
     this.cloudPull(user);
   }
@@ -1816,8 +1768,7 @@ class Component extends DCLogic {
     try { const sv = parseFloat(localStorage.getItem('gaw_vol')); if (sv >= 0 && sv <= 1) this.setState({ sndVol: sv }); } catch (e) {}
     // A returning member on a new device has never been asked where to begin.
     if (u) {
-      let lg = null; try { lg = localStorage.getItem('gaw_landing'); } catch (e) {}
-      if (!lg) setTimeout(() => { const st = this.state; if (!st.sessionOpen && !st.doneOpen && !st.joinOpen) this.setState({ landingOpen: true }); }, 500);
+      // Landing chooser removed — no first-visit prompt.
     }
     // app-shortcut deep links: /join?go=solo | /join?go=live
     try {
@@ -1938,7 +1889,7 @@ class Component extends DCLogic {
     const s = this.state;
     const tab = s.tab;
     const SEVA_WHATSAPP = '917337505390';
-    const SEVA_EMAIL = 'info@goldenagewisdom.org';
+    const SEVA_EMAIL = 'goldenageguruteachings@gmail.com';
     const ASK_TOPICS = [
       { key: 'health', label: 'Health & diet', hint: 'Tell them what is going on — food, sleep, energy, medicines.' },
       { key: 'kundalini', label: 'Kundalini experiences', hint: 'Describe what you felt, and when it happens.' },
@@ -1951,15 +1902,14 @@ class Component extends DCLogic {
       { key: 'solo', icon: '▶', label: 'Sit & Scribe' },
       { key: 'live', icon: '◉', label: 'Join live', badge: true },
       { key: 'journal', icon: '✎', label: 'Journal' },
+      { key: 'guide', icon: '✧', label: 'Wisdom Guide' },
       { key: 'share', icon: '♡', label: 'Share the light' },
       { key: 'help', icon: '✆', label: 'Circles & help' },
       ...(this.myRole() !== 'member' ? [{ key: 'admin', icon: '✦', label: 'Admin panel' }] : []),
     ];
     const mins = String(Math.floor(s.sessionSecs / 60)).padStart(2, '0');
     const secs = String(s.sessionSecs % 60).padStart(2, '0');
-    const eventDefs = [
-      { day: '26', month: 'JUL', title: 'Awakening Hyderabad', meta: '11 AM–6 PM · 9 Convention, Sanath Nagar', ends: '2026-07-26T18:00:00+05:30' },
-    ];
+    const eventDefs = [];
     const screen = this.props.startOnDashboard && s.screen === 'login' ? 'dash' : s.screen;
     return {
       memberName: this.memberNameNow(),
@@ -2031,6 +1981,7 @@ class Component extends DCLogic {
       signOut: () => this.clearSession(),
       tabOverview: tab === 'overview' || tab === 'events',
       tabJournal: tab === 'journal',
+      tabGuide: tab === 'guide',
       videoFilters: [['all', 'All'], ['discourse', 'Discourses'], ['meditation', 'Meditation'], ['practice', 'Practices']].map(([k, label]) => {
         const on = (s.videoFilter || 'all') === k;
         return { label, pick: () => this.setState({ videoFilter: k }),

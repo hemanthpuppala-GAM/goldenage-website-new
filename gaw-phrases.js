@@ -84,7 +84,7 @@ window.GAW_PHRASES = {
   /* Events */
   'Featured gathering': { hi: 'विशेष आयोजन', te: 'ప్రత్యేక సమావేశం', kn: 'ವಿಶೇಷ ಸಮಾವೇಶ', ta: 'சிறப்பு நிகழ்வு' },
   'View invitation ↗': { hi: 'निमंत्रण देखें ↗', te: 'ఆహ్వానం చూడండి ↗', kn: 'ಆಮಂತ್ರಣ ನೋಡಿ ↗', ta: 'அழைப்பிதழ் காண ↗' },
-  'Questions? info@goldenagewisdom.org': { hi: 'प्रश्न? info@goldenagewisdom.org', te: 'ప్రశ్నలా? info@goldenagewisdom.org', kn: 'ಪ್ರಶ್ನೆಗಳೇ? info@goldenagewisdom.org', ta: 'கேள்விகளா? info@goldenagewisdom.org' },
+  'Questions? goldenageguruteachings@gmail.com': { hi: 'प्रश्न? goldenageguruteachings@gmail.com', te: 'ప్రశ్నలా? goldenageguruteachings@gmail.com', kn: 'ಪ್ರಶ್ನೆಗಳೇ? goldenageguruteachings@gmail.com', ta: 'கேள்விகளா? goldenageguruteachings@gmail.com' },
   'Daily live sessions': { hi: 'प्रतिदिन सजीव सत्र', te: 'ప్రతిరోజూ ప్రత్యక్ష సెషన్లు', kn: 'ಪ್ರತಿದಿನ ನೇರ ಸೆಷನ್‌ಗಳು', ta: 'தினசரி நேரடி அமர்வுகள்' },
   'Every day · including Sunday': { hi: 'हर दिन · रविवार सहित', te: 'ప్రతిరోజూ · ఆదివారం సహా', kn: 'ಪ್ರತಿದಿನ · ಭಾನುವಾರ ಸೇರಿದಂತೆ', ta: 'தினமும் · ஞாயிறு உட்பட' },
   'Watch live on YouTube — free, worldwide': { hi: 'YouTube पर सजीव देखें — निःशुल्क, विश्वभर', te: 'YouTubeలో ప్రత్యక్షం చూడండి — ఉచితం, ప్రపంచవ్యాప్తం', kn: 'YouTubeನಲ್ಲಿ ನೇರ ನೋಡಿ — ಉಚಿತ, ವಿಶ್ವಾದ್ಯಂತ', ta: 'YouTube-ல் நேரடியாகப் பாருங்கள் — இலவசம், உலகெங்கும்' },
