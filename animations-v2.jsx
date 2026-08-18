@@ -876,8 +876,7 @@ function PlaybackBar({ time, duration, playing, onPlayPause, onReset, onSeek, on
     const total = Math.max(0, t);
     const m = Math.floor(total / 60);
     const s = Math.floor(total % 60);
-    const cs = Math.floor((total * 100) % 100);
-    return `${String(m).padStart(1, '0')}:${String(s).padStart(2, '0')}.${String(cs).padStart(2, '0')}`;
+    return `${String(m).padStart(1, '0')}:${String(s).padStart(2, '0')}`;
   };
 
   const mono = 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace';
@@ -1473,6 +1472,7 @@ function SceneStage(props) {
       )}
       <SceneSwitch scenes={scenes} map={props.children} transition={transition}
                    loop={loopEff} />
+      {props.persistent || null}
     </React.Fragment>
   );
   return (

@@ -1,7 +1,7 @@
 /* Golden Age Wisdom — offline shell.
    Cache-first for assets, network-first for pages, so content stays fresh
    but the app still opens on a bad connection. */
-const V = 'gaw-v50';
+const V = 'gaw-v51';
 const SHELL = [
   '/', '/index.html', '/manifest.webmanifest',
   '/assets/logo-128.webp', '/assets/meditator-clear.webp',

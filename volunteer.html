@@ -44,8 +44,8 @@
 
     <div style="max-width: 640px">
       <div style="font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: #b89758">Seva · service</div>
-      <h1 style="font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 52px); line-height: 1.08; margin: 10px 0 0; color: #f7f1e3; text-wrap: balance">The work is quiet, and there is a lot of it.</h1>
-      <p style="max-width: 34em; margin: 14px 0 0; font-size: clamp(14px, 1.4vw, 16px); font-weight: 200; line-height: 1.65; color: rgba(226,219,204,0.95); text-wrap: pretty">Chairs get carried, calls get answered, someone new writes at midnight frightened by what they felt in meditation. None of it is glamorous. All of it is the movement. Tell us where you would like to stand.</p>
+      <h1 style="font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 52px); line-height: 1.08; margin: 10px 0 0; color: #f7f1e3; text-wrap: balance">Many hands make the mission possible.</h1>
+      <p style="max-width: 34em; margin: 14px 0 0; font-size: clamp(14px, 1.4vw, 16px); font-weight: 200; line-height: 1.65; color: rgba(226,219,204,0.95); text-wrap: pretty">Chairs get carried, calls get answered, a stream goes live on time. Every bit of it is help, and every bit of it matters. Tell us where you would like to help.</p>
     </div>
 
     <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
@@ -101,6 +101,10 @@
                 <input value="{{ fPhone }}" onInput="{{ setPhone }}" type="tel" autocomplete="tel" placeholder="Optional" style="width: 100%; padding: 12px 15px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.045); color: #efe9dc; font-size: 14px; font-weight: 300">
               </label>
               <label style="display: flex; flex-direction: column; gap: 6px">
+                <span style="font-size: 12px; font-weight: 300; color: rgba(185,177,160,0.95)">Occupation</span>
+                <input value="{{ fOcc }}" onInput="{{ setOcc }}" type="text" autocomplete="organization-title" placeholder="What you do — teacher, engineer, homemaker…" style="width: 100%; padding: 12px 15px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.045); color: #efe9dc; font-size: 14px; font-weight: 300">
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 6px">
                 <span style="font-size: 12px; font-weight: 300; color: rgba(185,177,160,0.95)">City</span>
                 <input value="{{ fCity }}" onInput="{{ setCity }}" type="text" autocomplete="address-level2" placeholder="Hyderabad, Pune, anywhere" style="width: 100%; padding: 12px 15px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.045); color: #efe9dc; font-size: 14px; font-weight: 300">
               </label>
@@ -153,7 +157,7 @@
           </div>
 
           <div style="padding: 18px 22px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03)">
-            <div style="font-size: 12.5px; font-weight: 300; line-height: 1.6; color: rgba(185,177,160,0.95)">Rather write to a person? <a href="mailto:info@goldenagewisdom.org?subject=Volunteering">info@goldenagewisdom.org</a></div>
+            <div style="font-size: 12.5px; font-weight: 300; line-height: 1.6; color: rgba(185,177,160,0.95)">Rather write to a person? <a href="mailto:goldenageguruteachings@gmail.com?subject=Volunteering">goldenageguruteachings@gmail.com</a></div>
           </div>
         </aside>
 
@@ -170,14 +174,14 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;900px&quot;}}">
 class Component extends DCLogic {
-  state = { picked: [], avail: '', name: '', email: '', phone: '', city: '', note: '', honey: '', busy: false, error: '', sent: null };
+  state = { picked: [], avail: '', name: '', email: '', phone: '', city: '', occ: '', note: '', honey: '', busy: false, error: '', sent: null };
 
   TEAMS = [
     { id: 'events-setup', glyph: '△', title: 'Events — on the ground', desc: 'Setting up halls, chairs, mats, sound and signage. Arrive early, leave last.' },
     { id: 'helpline', glyph: '☎', title: 'Helpline — first level', desc: 'Answer the first message or call, understand what is being asked, and pass it to the right team.' },
     { id: 'local-event', glyph: '◎', title: 'Local event volunteer', desc: 'Host or help run sits and gatherings in your own city.' },
     { id: 'kundalini-share', glyph: '✦', title: 'Experiences & doubts — for seasoned meditators', desc: 'Members write in about what rose in meditation — kundalini stirrings, heat, fear, something they cannot name. You have sat long enough to answer plainly and leave them unworried.' },
-    { id: 'donor', glyph: '❋', title: 'Donor member', desc: 'Give regularly so the teachings stay free for everyone else.' },
+    { id: 'donor', glyph: '❋', title: 'Donor member', desc: 'A small gift, whatever feels right, helps keep the teachings free for all.' },
     { id: 'social-media', glyph: '☾', title: 'Social media', desc: 'Write, film, edit and post — carry the work to people who have not heard of it.' },
     { id: 'tech', glyph: '▽', title: 'Tech', desc: 'The website, the streams, the member tools. Anything that has to keep working.' },
   ];
@@ -205,18 +209,22 @@ class Component extends DCLogic {
 
     const body = new URLSearchParams({
       name: s.name.trim(), email: s.email.trim(), phone: s.phone.trim(), city: s.city.trim(),
-      role: 'volunteer', teams: s.picked.join(','), avail: s.avail, note: s.note.trim(),
+      role: 'volunteer', teams: s.picked.join(','), avail: s.avail,
+      note: s.note.trim(), occupation: s.occ.trim(),
       website: s.honey, lang: (window.GAW_LANG || 'en').toUpperCase(),
     });
     try {
       const r = await fetch('signup.php', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
-      const j = await r.json();
-      if (!j.ok) throw new Error(j.error || 'Something went wrong.');
+      const raw = await r.text();
+      let j = null; try { j = JSON.parse(raw); } catch (_) { j = null; }
+      if (!j) throw new Error('unreadable reply');
+      // The server explained itself — show its words, not a generic failure.
+      if (!j.ok) { this.setState({ busy: false, error: j.error || 'Something went wrong. Please try again.' }); return; }
       this.setState({ busy: false, sent: j.message || 'Thank you — we have your note.' });
     } catch (e) {
       // The handler is PHP; opened as a bare file it will not exist. Say so honestly
       // rather than showing a network error the visitor cannot act on.
-      this.setState({ busy: false, error: 'We could not reach the server. Please email info@goldenagewisdom.org and we will add you by hand.' });
+      this.setState({ busy: false, error: 'We could not reach the server. Please email goldenageguruteachings@gmail.com and we will add you by hand.' });
     }
   }
 
@@ -227,7 +235,7 @@ class Component extends DCLogic {
       sent: !!s.sent, notSent: !s.sent,
       sentTitle: 'Thank you for offering to serve.',
       sentBody: s.sent || '',
-      again: () => this.setState({ sent: null, picked: [], name: '', email: '', phone: '', city: '', note: '', avail: '' }),
+      again: () => this.setState({ sent: null, picked: [], name: '', email: '', phone: '', city: '', occ: '', note: '', avail: '' }),
 
       teams: this.TEAMS.map(t => ({
         ...t,
@@ -252,11 +260,12 @@ class Component extends DCLogic {
 
       steps: this.STEPS,
 
-      fName: s.name, fEmail: s.email, fPhone: s.phone, fCity: s.city, fNote: s.note, fHoney: s.honey,
+      fName: s.name, fEmail: s.email, fPhone: s.phone, fCity: s.city, fOcc: s.occ, fNote: s.note, fHoney: s.honey,
       setName: (e) => this.setState({ name: e.target.value }),
       setEmail: (e) => this.setState({ email: e.target.value }),
       setPhone: (e) => this.setState({ phone: e.target.value }),
       setCity: (e) => this.setState({ city: e.target.value }),
+      setOcc: (e) => this.setState({ occ: e.target.value }),
       setNote: (e) => this.setState({ note: e.target.value }),
       setHoney: (e) => this.setState({ honey: e.target.value }),
 
